@@ -1,1 +1,7 @@
-<p>login works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <tt-input [placeholder]="'Write your email'" [label]="'Email'" [type]="'text'" (valueChange)="onValueChange('email', $event)"></tt-input>
+  <tt-input [placeholder]="'Write your password'" [label]="'Password'" [type]="'password'" (valueChange)="onValueChange('password', $event)"></tt-input>
+  <tt-button [type]="'submit'">SUBMIT</tt-button>
+  <tt-button [type]="'reset'" [color]="'secondary'">RESET</tt-button>
+</form>
+

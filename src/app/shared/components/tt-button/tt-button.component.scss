@@ -1,0 +1,28 @@
+.color {
+ &-primary {
+   background-color: green;
+ }
+  &-secondary {
+    background-color: gray;
+  }
+
+  &-tertiary {
+    background-color: red;
+  }
+}
+
+.size {
+  &-large {
+    width: 100px;
+    height: 30px;
+  }
+  &-medium {
+    width: 80px;
+    height: 30px;
+  }
+
+  &-small {
+    width: 60px;
+    height: 30px;
+  }
+}
