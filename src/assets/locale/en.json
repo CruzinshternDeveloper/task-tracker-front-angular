@@ -1,0 +1,14 @@
+{
+  "general": {
+    "submit": "Submit",
+    "cancel": "Cancel"
+  },
+  "auth": {
+    "email": "Email",
+    "writeEmail": "Write your email",
+    "password": "Password",
+    "writePassword": "Write your password",
+    "firstName": "First name",
+    "lastName": "Last name"
+  }
+}

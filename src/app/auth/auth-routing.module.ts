@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { SharedModule } from '../shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgForOf } from '@angular/common';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -12,7 +14,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), SharedModule, ReactiveFormsModule],
+  imports: [
+    RouterModule.forChild(routes),
+    SharedModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    NgForOf,
+    FormsModule,
+  ],
   declarations: [
     LoginComponent,
     RegistrationComponent

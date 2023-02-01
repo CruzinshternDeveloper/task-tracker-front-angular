@@ -1,0 +1,14 @@
+{
+  "general": {
+    "submit": "Отправить",
+    "cancel": "Отменить"
+  },
+  "auth": {
+    "email": "Email",
+    "writeEmail": "Напишите ваш email",
+    "password": "Пароль",
+    "writePassword": "Напишите ваш пароль",
+    "firstName": "Имя",
+    "lastName": "Фамилия"
+  }
+}
