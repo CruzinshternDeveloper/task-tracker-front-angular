@@ -1,13 +1,41 @@
+@use '../../../../assets/styles/variables' as *;
+
+.button {
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .color {
  &-primary {
-   background-color: green;
+   background-color: $primary-color;
+   color: $white;
+   transition: all 0.5s ease-out;
+   &:hover {
+     background-color: $white;
+     color: $primary-color;
+     border: 1px solid $primary-color;
+   }
  }
   &-secondary {
-    background-color: gray;
+    background-color: $secondary-color;
+    color: $black;
+    &:hover {
+      background-color: $secondary-color;
+      color: $white;
+    }
   }
 
   &-tertiary {
-    background-color: red;
+    background-color: $tertiary-color;
+    color: $white;
+    &:hover {
+      background-color: $white;
+      color: $primary-color;
+    }
   }
 }
 

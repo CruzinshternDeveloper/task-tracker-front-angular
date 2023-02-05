@@ -5,7 +5,8 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { NgForOf } from '@angular/common';
+import { NgForOf, NgIf, UpperCasePipe } from '@angular/common';
+import { AuthFormComponent } from './components/auth-form/auth-form.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -21,10 +22,13 @@ const routes: Routes = [
     TranslateModule,
     NgForOf,
     FormsModule,
+    UpperCasePipe,
+    NgIf,
   ],
   declarations: [
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AuthFormComponent
   ],
   exports: [RouterModule]
 })

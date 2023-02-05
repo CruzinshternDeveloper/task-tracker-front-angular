@@ -1,0 +1,27 @@
+@use '../../../../assets/styles/variables' as *;
+
+:host {
+  width:40%;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.bottom-text {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.redirection-link {
+  color: $primary-color;
+  margin-left: 4px;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

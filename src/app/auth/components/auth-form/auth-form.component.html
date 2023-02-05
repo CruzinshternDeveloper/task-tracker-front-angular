@@ -1,0 +1,45 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  <tt-input [placeholder]="'auth.writeFirstName' | translate"
+            [label]="'auth.firstName' | translate"
+            [type]="'text'"
+            *ngIf="handleRegistrationVisibility()"
+            (valueChange)="onValueChange('firstName', $event)">
+  </tt-input>
+  <tt-input [placeholder]="'auth.writeLastName' | translate"
+            [label]="'auth.lastName' | translate"
+            [type]="'text'"
+            *ngIf="handleRegistrationVisibility()"
+            (valueChange)="onValueChange('lastName', $event)">
+  </tt-input>
+  <tt-input [placeholder]="'auth.writeEmail' | translate"
+            [label]="'auth.email' | translate"
+            [type]="'text'"
+            (valueChange)="onValueChange('email', $event)">
+  </tt-input>
+  <tt-input [placeholder]="'auth.writePassword' | translate"
+            [label]="'auth.password' | translate"
+            [type]="'password'"
+            (valueChange)="onValueChange('password', $event)">
+  </tt-input>
+
+  <div class="actions">
+    <tt-button [type]="'submit'">{{ 'auth.'+ formType | translate }}</tt-button>
+    <tt-button [type]="'reset'" [color]="'secondary'">{{ 'general.cancel' | translate }}</tt-button>
+  </div>
+
+  <div class="bottom-text">
+    <div *ngIf="handleLoginVisibility()">{{ 'auth.loginBottomText' | translate }}</div>
+    <div *ngIf="handleRegistrationVisibility()">{{ 'auth.registrationBottomText' | translate }}</div>
+    <strong (click)="navigateWithinAuth()"
+            *ngIf="handleLoginVisibility()"
+            class="redirection-link">
+      {{ 'auth.registration' | translate }}
+    </strong>
+    <strong (click)="navigateWithinAuth()"
+            *ngIf="handleRegistrationVisibility()"
+            class="redirection-link">
+      {{ 'auth.login' | translate }}
+    </strong>
+  </div>
+  <tt-language-selector></tt-language-selector>
+</form>

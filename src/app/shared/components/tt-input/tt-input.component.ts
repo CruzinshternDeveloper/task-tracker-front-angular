@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'tt-input',
   templateUrl: './tt-input.component.html',
-  styleUrls: ['./tt-input.component.css']
+  styleUrls: ['./tt-input.component.scss']
 })
 export class TtInputComponent implements OnInit {
   @Input() length: 'half' | 'full' = 'full';

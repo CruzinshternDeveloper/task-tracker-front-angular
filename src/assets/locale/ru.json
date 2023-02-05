@@ -5,10 +5,16 @@
   },
   "auth": {
     "email": "Email",
-    "writeEmail": "Напишите ваш email",
     "password": "Пароль",
+    "registration": "Зарегистрируйтесь",
+    "login": "Залогинтесь",
+    "writeEmail": "Напишите ваш email",
     "writePassword": "Напишите ваш пароль",
+    "writeFirstName": "Напишите ваше имя",
+    "writeLastName": "Напишите вашу фамилию",
     "firstName": "Имя",
-    "lastName": "Фамилия"
+    "lastName": "Фамилия",
+    "loginBottomText": "У Вас еще нет аккаунта?",
+    "registrationBottomText": "У Вас уже есть аккаунт,"
   }
 }

@@ -5,10 +5,16 @@
   },
   "auth": {
     "email": "Email",
-    "writeEmail": "Write your email",
     "password": "Password",
+    "registration": "Registration",
+    "login": "Login",
+    "writeEmail": "Write your email",
     "writePassword": "Write your password",
+    "writeFirstName": "Write your first name",
+    "writeLastName": "Write your last name",
     "firstName": "First name",
-    "lastName": "Last name"
+    "lastName": "Last name",
+    "loginBottomText": "Don't have an account?",
+    "registrationBottomText": "Already have an account?"
   }
 }

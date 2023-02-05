@@ -5,6 +5,7 @@ import { TtButtonComponent } from './components/tt-button/tt-button.component';
 import { TtLanguageSelectorComponent } from './components/tt-language-selector/tt-language-selector.component';
 import { AngularCountriesFlagsModule } from 'angular-countries-flags';
 import { TranslateModule } from '@ngx-translate/core';
+import { NavigationService } from './services/navigation.service';
 
 @NgModule({
   declarations: [
@@ -17,10 +18,10 @@ import { TranslateModule } from '@ngx-translate/core';
     TtButtonComponent,
     TtLanguageSelectorComponent
   ],
-    imports: [
-        CommonModule,
-        AngularCountriesFlagsModule,
-        TranslateModule
-    ]
+  imports: [
+      CommonModule,
+      AngularCountriesFlagsModule,
+      TranslateModule
+  ]
 })
 export class SharedModule { }

@@ -1,16 +1,2 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <tt-input [placeholder]="'auth.writeEmail' | translate"
-            [label]="'auth.email' | translate"
-            [type]="'text'"
-            (valueChange)="onValueChange('password', $event)">
-  </tt-input>
-  <tt-input [placeholder]="'auth.writePassword' | translate"
-            [label]="'auth.password' | translate"
-            [type]="'password'"
-            (valueChange)="onValueChange('password', $event)">
-  </tt-input>
-  <tt-button [type]="'submit'">{{ 'general.submit' | translate }}</tt-button>
-  <tt-button [type]="'reset'" [color]="'secondary'">{{ 'general.cancel' | translate }}</tt-button>
-</form>
+<tt-auth-form [formType]="'login'"></tt-auth-form>
 
-<tt-language-selector></tt-language-selector>

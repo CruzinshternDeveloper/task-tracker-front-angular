@@ -1,3 +1,9 @@
+:host {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 .flag {
   &:hover {
     cursor: pointer;
