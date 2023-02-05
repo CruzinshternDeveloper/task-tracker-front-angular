@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
+import { AppLanguageService } from './shared/services/app-language.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,10 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private _translateService: TranslateService) {
+  constructor(private _appLanguageService: AppLanguageService) {
   }
 
   ngOnInit(): void {
-    this._translateService.use(environment.defaultLocale);
+    this._appLanguageService.getLanguage();
   }
 }

@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   locales: ['en', 'ru'],
   defaultLocale: 'en',
+  tt_lang_local_storage_key: 'tt_lang'
 };
 
 /*
