@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthorizationInterceptor } from '../shared/interceptors/authorization.interceptor';
+import { HttpClientModule } from '@angular/common/http';
 import { AuthorizationService } from './services/authorization.service';
 
 @NgModule({
@@ -12,12 +11,7 @@ import { AuthorizationService } from './services/authorization.service';
     HttpClientModule
   ],
   providers: [
-    AuthorizationService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthorizationInterceptor,
-      multi: true,
-    }
+    AuthorizationService
   ],
 })
 export class AuthModule { }

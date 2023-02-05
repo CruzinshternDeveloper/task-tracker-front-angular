@@ -7,6 +7,7 @@ export const environment = {
   locales: ['en', 'ru'],
   defaultLocale: 'en',
   tt_lang_local_storage_key: 'tt_lang',
+  tt_token: 'tt_token',
   BASIC_URL: 'http://localhost:7000'
 };
 

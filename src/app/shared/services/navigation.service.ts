@@ -8,7 +8,7 @@ export class NavigationService {
 
   constructor(private _router: Router) { }
 
-  async handleNavigation(path: string) {
-    await this._router.navigate([path]);
+  async handleNavigation(path: string[]) {
+    await this._router.navigate([path.join('/')]);
   }
 }
