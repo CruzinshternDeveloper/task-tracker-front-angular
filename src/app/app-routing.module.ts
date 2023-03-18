@@ -17,6 +17,7 @@ const routes: Routes = [
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule),
     canActivate: [AuthGuard]
   },
+  { path: '**', redirectTo: 'tasks', pathMatch: 'full' }
 ];
 
 @NgModule({
