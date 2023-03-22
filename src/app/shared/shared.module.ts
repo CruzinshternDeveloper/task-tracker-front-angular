@@ -6,6 +6,7 @@ import { TtLanguageSelectorComponent } from './components/tt-language-selector/t
 import { AngularCountriesFlagsModule } from 'angular-countries-flags';
 import { TranslateModule } from '@ngx-translate/core';
 import { TtMenuComponent } from './components/tt-menu/tt-menu.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,10 @@ import { TtMenuComponent } from './components/tt-menu/tt-menu.component';
     TtMenuComponent
   ],
   imports: [
-      CommonModule,
-      AngularCountriesFlagsModule,
-      TranslateModule
+    CommonModule,
+    AngularCountriesFlagsModule,
+    TranslateModule,
+    MatIconModule,
   ]
 })
 export class SharedModule { }

@@ -1,1 +1,38 @@
-<p>tt-menu works!</p>
+<div class="tt-menu" [ngClass]="[isOpened ? 'opened' : 'closed']">
+  <ng-container *ngIf="!isOpened">
+    <mat-icon (click)="toggleMenuState()" class="icon toggler">menu</mat-icon>
+    <div class="items">
+      <mat-icon class="icon">list_alt</mat-icon>
+      <mat-icon class="icon">donut_large</mat-icon>
+      <mat-icon class="icon">settings</mat-icon>
+      <mat-icon class="icon">perm_identity</mat-icon>
+      <mat-icon class="icon">exit_to_app</mat-icon>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="isOpened">
+    <mat-icon (click)="toggleMenuState()" *ngIf="isOpened" class="toggler">arrow_back</mat-icon>
+    <div class="items">
+      <div class="items-item">
+        <mat-icon>list_alt</mat-icon>
+        <span>List</span>
+      </div>
+      <div class="items-item">
+        <mat-icon>donut_large</mat-icon>
+        <span>Statistics</span>
+      </div>
+      <div class="items-item">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </div>
+      <div class="items-item">
+        <mat-icon>perm_identity</mat-icon>
+        <span>Profile</span>
+      </div>
+      <div class="items-item">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </div>
+    </div>
+  </ng-container>
+</div>
+

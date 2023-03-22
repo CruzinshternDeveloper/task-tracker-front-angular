@@ -1,0 +1,46 @@
+@use '../../../../assets/styles/variables' as *;
+
+.tt-menu {
+  height: 100%;
+  background-color: $primary-color;
+  transition: all 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  .icon {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.closed {
+  width: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.opened {
+  width: 140px;
+}
+
+.toggler {
+  margin-top: 12px;
+  &:hover {
+    cursor: pointer;
+  }
+}
