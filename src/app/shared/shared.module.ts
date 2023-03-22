@@ -5,17 +5,20 @@ import { TtButtonComponent } from './components/tt-button/tt-button.component';
 import { TtLanguageSelectorComponent } from './components/tt-language-selector/tt-language-selector.component';
 import { AngularCountriesFlagsModule } from 'angular-countries-flags';
 import { TranslateModule } from '@ngx-translate/core';
+import { TtMenuComponent } from './components/tt-menu/tt-menu.component';
 
 @NgModule({
   declarations: [
     TtInputComponent,
     TtButtonComponent,
-    TtLanguageSelectorComponent
+    TtLanguageSelectorComponent,
+    TtMenuComponent
   ],
   exports: [
     TtInputComponent,
     TtButtonComponent,
-    TtLanguageSelectorComponent
+    TtLanguageSelectorComponent,
+    TtMenuComponent
   ],
   imports: [
       CommonModule,
