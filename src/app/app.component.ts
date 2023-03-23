@@ -1,18 +1,25 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { environment } from '../environments/environment';
 import { AppLanguageService } from './shared/services/app-language.service';
+import { NavigationEnd, Router } from '@angular/router';
+import { ROUTES } from './shared/enums/routes.enum';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private _appLanguageService: AppLanguageService) {
-  }
+  showMenu: boolean = false;
+
+  constructor(private _appLanguageService: AppLanguageService, private _router: Router) {}
 
   ngOnInit(): void {
     this._appLanguageService.getLanguage();
+    this._router.events.subscribe(data => {
+      if (data instanceof NavigationEnd) {
+        const url = data.url;
+        this.showMenu = !url.includes(ROUTES.AUTH);
+      }
+    });
   }
 }

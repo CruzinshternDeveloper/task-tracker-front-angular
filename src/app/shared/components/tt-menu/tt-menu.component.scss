@@ -2,16 +2,20 @@
 
 .tt-menu {
   height: 100%;
-  background-color: $primary-color;
+  background-color: $menu-main;
   transition: all 0.5s ease-out;
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding: 0 10px;
+  justify-content: space-between;
 
   .items {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    padding-bottom: 10px;
+
     &-item {
       display: flex;
       align-items: center;
@@ -27,19 +31,44 @@
 }
 
 .closed {
-  width: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 26px;
 
+  .items {
+    width: inherit;
+
+    &-item {
+      &-icon {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      &-label {
+        transition: opacity 0.5s;
+        opacity: 0;
+      }
+    }
+  }
 }
 
 .opened {
   width: 140px;
+
+  .items {
+    &-item {
+      &-label {
+        transition: opacity 1s;
+        opacity: 1;
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 .toggler {
-  margin-top: 12px;
+  margin-top: 10px;
   &:hover {
     cursor: pointer;
   }

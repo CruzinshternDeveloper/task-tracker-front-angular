@@ -28,6 +28,10 @@ export class AuthorizationService {
       )
   }
 
+  logout() {
+    localStorage.removeItem(environment.tt_token);
+  }
+
   registration(body: IUserRegister) {
     return this._httpClient.post([environment.BASIC_URL, ROUTES.USERS, ROUTES.CREATE].join('/'), body)
       .pipe(
