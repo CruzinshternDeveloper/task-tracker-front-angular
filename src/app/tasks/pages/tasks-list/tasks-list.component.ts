@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectTasks } from '../../../store/tasks/tasks.selectors';
 
 @Component({
   selector: 'app-tasks-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TasksListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _store: Store<any>) {
+  }
 
   ngOnInit(): void {
+    this._store.select(selectTasks).subscribe(data => console.log(data))
+
   }
 
 }

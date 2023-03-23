@@ -7,6 +7,12 @@ import { MissingTranslationHandler, TranslateLoader, TranslateModule } from '@ng
 import { MissingTranslationService } from './shared/services/missing-translation.service';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedModule } from './shared/shared.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { tasksReducer } from './store/tasks/tasks.reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { TasksEffects } from './store/tasks/tasks.effects';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -28,7 +34,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
       },
       missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingTranslationService },
     }),
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot({ tasks: tasksReducer }, {}),
+    EffectsModule.forRoot([TasksEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

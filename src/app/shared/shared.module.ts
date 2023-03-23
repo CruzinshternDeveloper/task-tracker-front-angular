@@ -7,6 +7,8 @@ import { AngularCountriesFlagsModule } from 'angular-countries-flags';
 import { TranslateModule } from '@ngx-translate/core';
 import { TtMenuComponent } from './components/tt-menu/tt-menu.component';
 import { MatIconModule } from '@angular/material/icon';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,13 @@ import { MatIconModule } from '@angular/material/icon';
     AngularCountriesFlagsModule,
     TranslateModule,
     MatIconModule,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthorizationInterceptor,
+      multi: true
+    }
   ]
 })
 export class SharedModule { }
