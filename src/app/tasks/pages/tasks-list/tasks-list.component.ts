@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectTasks } from '../../../store/tasks/tasks.selectors';
+import { GetTasks } from '../../../store/tasks/tasks.actions';
 
 @Component({
   selector: 'app-tasks-list',
@@ -10,6 +11,7 @@ import { selectTasks } from '../../../store/tasks/tasks.selectors';
 export class TasksListComponent implements OnInit {
 
   constructor(private _store: Store<any>) {
+    this._store.dispatch(GetTasks())
   }
 
   ngOnInit(): void {
