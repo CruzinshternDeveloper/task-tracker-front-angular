@@ -16,5 +16,12 @@
     "lastName": "Last name",
     "loginBottomText": "Don't have an account?",
     "registrationBottomText": "Already have an account?"
+  },
+  "tasks": {
+    "panel": {
+      "todo": "Todo",
+      "inProgress": "In Progress",
+      "done": "Done"
+    }
   }
 }

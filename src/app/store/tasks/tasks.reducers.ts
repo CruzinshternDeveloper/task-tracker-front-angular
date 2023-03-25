@@ -7,12 +7,7 @@ export function selectId(a: any): string {
   return a._id;
 }
 
-export interface ITasksStore {
-  isLoading: boolean,
-  hasError: boolean
-}
-
-export const adapter: EntityAdapter<ITasksStore> = createEntityAdapter<ITasksStore>({ selectId });
+export const adapter: EntityAdapter<any> = createEntityAdapter<any>({ selectId });
 
 export const initialState = adapter.getInitialState({
   isLoading: true,

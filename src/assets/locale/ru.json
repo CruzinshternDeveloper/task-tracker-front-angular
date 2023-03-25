@@ -16,5 +16,12 @@
     "lastName": "Фамилия",
     "loginBottomText": "У Вас еще нет аккаунта?",
     "registrationBottomText": "У Вас уже есть аккаунт,"
+  },
+  "tasks": {
+    "panel": {
+      "todo": "Сделать",
+      "inProgress": "В Процессе",
+      "done": "Выполнено"
+    }
   }
 }

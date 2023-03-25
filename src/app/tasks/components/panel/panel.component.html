@@ -1,0 +1,38 @@
+  <div class="container">
+    <span class="header todo">{{ 'tasks.panel.todo' | translate }}</span>
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todoTasks"
+      [cdkDropListConnectedTo]="[progressList, doneList]"
+      class="list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="box" *ngFor="let item of todoTasks" cdkDrag>{{ item.title }}</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <span class="header progress">{{ 'tasks.panel.inProgress' | translate }}</span>
+    <div
+      cdkDropList
+      #progressList="cdkDropList"
+      [cdkDropListData]="inProgressTasks"
+      [cdkDropListConnectedTo]="[todoList, doneList]"
+      class="list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="box" *ngFor="let item of inProgressTasks" cdkDrag>{{ item.title }}</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <span class="header done">{{ 'tasks.panel.done' | translate }}</span>
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="doneTasks"
+      [cdkDropListConnectedTo]="[todoList, progressList]"
+      class="list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="box" *ngFor="let item of doneTasks" cdkDrag>{{ item.title }}</div>
+    </div>
+  </div>
