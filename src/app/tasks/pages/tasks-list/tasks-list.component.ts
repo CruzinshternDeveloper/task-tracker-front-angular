@@ -4,20 +4,21 @@ import { selectTasks } from '../../../store/tasks/tasks.selectors';
 import { GetTasks } from '../../../store/tasks/tasks.actions';
 import { ITask } from '../../../shared/interfaces/tasks.interface';
 import { TASK_STATUS } from '../../../shared/enums/task-status.enum';
+import { getFormattedDate } from '../../../shared/helpers/format-date.helper';
 
 @Component({
   selector: 'app-tasks-list',
   templateUrl: './tasks-list.component.html',
-  styleUrls: ['./tasks-list.component.scss']
+  styleUrls: ['./tasks-list.component.scss'],
 })
 export class TasksListComponent implements OnInit {
-
   todoTasks: ITask[] = [];
   inProgressTasks: ITask[] = [];
   doneTasks: ITask[] = [];
+  currentDate: string = getFormattedDate(new Date);
 
   constructor(private _store: Store<any>) {
-    this._store.dispatch(GetTasks());
+    this._store.dispatch(GetTasks({ startDate: this.currentDate }));
   }
 
   ngOnInit(): void {
@@ -26,5 +27,9 @@ export class TasksListComponent implements OnInit {
       this.inProgressTasks = data.filter(i => i.status === TASK_STATUS.IN_PROGRESS);
       this.doneTasks = data.filter(i => i.status === TASK_STATUS.DONE);
     });
+  }
+
+  handleChangeDate(date: string) {
+    this._store.dispatch(GetTasks({ startDate: date }));
   }
 }

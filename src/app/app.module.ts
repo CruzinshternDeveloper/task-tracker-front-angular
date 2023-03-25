@@ -13,6 +13,7 @@ import { tasksReducer } from './store/tasks/tasks.reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { TasksEffects } from './store/tasks/tasks.effects';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   return new TranslateHttpLoader(http, './assets/locale/', '.json');
@@ -24,6 +25,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     TranslateModule.forRoot({

@@ -7,6 +7,7 @@ import { TasksComponent } from './tasks.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PanelComponent } from './components/panel/panel.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TasksRoutingModule,
     DragDropModule,
     TranslateModule,
+    SharedModule
   ]
 })
 export class TasksModule { }
