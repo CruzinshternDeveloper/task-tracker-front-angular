@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectTasks } from '../../../store/tasks/tasks.selectors';
-import { GetTasks } from '../../../store/tasks/tasks.actions';
+import { SelectActiveTasks, SelectDoneTasks, SelectTodoTasks } from '../../../store/tasks/tasks.selectors';
+import { GetTasks, UpdateTask } from '../../../store/tasks/tasks.actions';
 import { ITask } from '../../../shared/interfaces/tasks.interface';
-import { TASK_STATUS } from '../../../shared/enums/task-status.enum';
 import { getFormattedDate } from '../../../shared/helpers/format-date.helper';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tasks-list',
@@ -12,9 +12,9 @@ import { getFormattedDate } from '../../../shared/helpers/format-date.helper';
   styleUrls: ['./tasks-list.component.scss'],
 })
 export class TasksListComponent implements OnInit {
-  todoTasks: ITask[] = [];
-  inProgressTasks: ITask[] = [];
-  doneTasks: ITask[] = [];
+  todoTasks$: Observable<ITask[]>;
+  inProgressTasks$: Observable<ITask[]>;
+  doneTasks$: Observable<ITask[]>;
   currentDate: string = getFormattedDate(new Date);
 
   constructor(private _store: Store<any>) {
@@ -22,14 +22,16 @@ export class TasksListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._store.select(selectTasks).subscribe((data) => {
-      this.todoTasks = data.filter(i => i.status === TASK_STATUS.TODO);
-      this.inProgressTasks = data.filter(i => i.status === TASK_STATUS.IN_PROGRESS);
-      this.doneTasks = data.filter(i => i.status === TASK_STATUS.DONE);
-    });
+    this.todoTasks$ = this._store.pipe(SelectTodoTasks);
+    this.inProgressTasks$ = this._store.pipe(SelectActiveTasks);
+    this.doneTasks$ = this._store.pipe(SelectDoneTasks);
   }
 
   handleChangeDate(date: string) {
     this._store.dispatch(GetTasks({ startDate: date }));
+  }
+
+  handleStatusChange(task: ITask) {
+    this._store.dispatch(UpdateTask({ task }));
   }
 }

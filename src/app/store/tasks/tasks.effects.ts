@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
 import { TasksService } from '../../tasks/services/tasks.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { GetTasks, GetTasksFailure, GetTasksSuccess } from './tasks.actions';
+import {
+  GetTasks,
+  GetTasksFailure,
+  GetTasksSuccess,
+  UpdateTask,
+  UpdateTaskFailure,
+  UpdateTaskSuccess
+} from './tasks.actions';
 import { catchError, map, of, switchMap } from 'rxjs';
+import { ITask } from '../../shared/interfaces/tasks.interface';
 
 @Injectable()
 export class TasksEffects {
@@ -17,5 +25,17 @@ export class TasksEffects {
           catchError(error => of(GetTasksFailure({ error })))
         ))
     )
-  })
+  });
+
+  updateTask$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(UpdateTask),
+      switchMap(({ task }) => this._tasksService.updateTask(task)
+        .pipe(
+          map((task: any) => UpdateTaskSuccess({ task })),
+          catchError(error => of(UpdateTaskFailure({ error })))
+        )
+      )
+    )
+  });
 }

@@ -1,6 +1,13 @@
 import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
-import { GetTasks, GetTasksFailure, GetTasksSuccess } from './tasks.actions';
+import {
+  GetTasks,
+  GetTasksFailure,
+  GetTasksSuccess,
+  UpdateTask,
+  UpdateTaskFailure,
+  UpdateTaskSuccess
+} from './tasks.actions';
 
 //this is necessary since id in my tasks are not 'id' but '_id' and it is necessary to specify that so that entity adapter can iterate through them properly
 export function selectId(a: any): string {
@@ -17,9 +24,20 @@ export const initialState = adapter.getInitialState({
 const reducer = createReducer(
   initialState,
   on(GetTasks,
+    UpdateTask,
     (state) => {
       return {
         ...state
+      }
+    }),
+  on(
+    GetTasksFailure,
+    UpdateTaskFailure,
+    (state, { error }) => {
+      return {
+        ...state,
+        isLoading: false,
+        hasError: true
       }
     }),
   on(GetTasksSuccess, (state, { tasks }) => {
@@ -28,15 +46,12 @@ const reducer = createReducer(
       isLoading: false,
     })
   }),
-  on(
-    GetTasksFailure,
-    (state, { error }) => {
-      return {
-        ...state,
-        isLoading: false,
-        hasError: true
-      }
-    }),
+  on(UpdateTaskSuccess, (state, { task }) => {
+    return adapter.upsertOne(task, {
+      ...state,
+      isLoading: false
+    });
+})
 )
 
 export const { selectAll } = adapter.getSelectors()

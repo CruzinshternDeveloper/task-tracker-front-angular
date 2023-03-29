@@ -1,2 +1,7 @@
 <tt-datepicker [date]="currentDate" (newDate)="handleChangeDate($event)"></tt-datepicker>
-<app-panel [todoTasks]="todoTasks" [inProgressTasks]="inProgressTasks" [doneTasks]="doneTasks"></app-panel>
+<app-panel
+  [todoTasks]="todoTasks$ | async"
+  [inProgressTasks]="inProgressTasks$ | async"
+  [doneTasks]="doneTasks$ | async"
+  (itemToUpdate)="handleStatusChange($event)"
+></app-panel>
