@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { TasksService } from '../../tasks/services/tasks.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import {
+  CreateTask,
+  CreateTaskFailure,
+  CreateTaskSuccess,
   GetTasks,
   GetTasksFailure,
   GetTasksSuccess,
@@ -34,6 +37,18 @@ export class TasksEffects {
         .pipe(
           map((task: any) => UpdateTaskSuccess({ task })),
           catchError(error => of(UpdateTaskFailure({ error })))
+        )
+      )
+    )
+  });
+
+  createTask$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(CreateTask),
+      switchMap(({ task }) => this._tasksService.createTask(task)
+        .pipe(
+          map((task: any) => CreateTaskSuccess({ task })),
+          catchError(error => of(CreateTaskFailure({ error })))
         )
       )
     )

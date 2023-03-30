@@ -30,4 +30,7 @@ export class TtMenuComponent implements OnInit {
     await this._navigationService.handleNavigation([ROUTES.AUTH]);
   }
 
+  async handleRedirect(route: string | undefined) {
+    if (route) await this._navigationService.handleNavigation([ROUTES.TASKS, route]);
+  }
 }

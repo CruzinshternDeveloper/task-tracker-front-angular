@@ -8,12 +8,13 @@
 
 .label {}
 
-.input {
+.textarea {
   padding: 8px 10px;
   margin: 10px 0;
   outline: none;
   border: 2px solid $border-color;
   border-radius: 2px;
+
   &:focus {
     border: 2px solid $primary-color;
   }

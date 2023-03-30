@@ -22,6 +22,15 @@
       "todo": "Todo",
       "inProgress": "In Progress",
       "done": "Done"
+    },
+    "form": {
+      "titleLabel": "Title",
+      "titlePlaceholder": "Write task title",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Describe the task",
+      "chooseDate": "Choose date",
+      "create": "Create",
+      "cancel": "Cancel"
     }
   }
 }

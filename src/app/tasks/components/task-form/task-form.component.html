@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <tt-input [placeholder]="'tasks.form.titlePlaceholder' | translate"
+            [label]="'tasks.form.titleLabel' | translate"
+            [type]="'text'"
+            (valueChange)="onValueChange('title', $event)">
+  </tt-input>
+  <tt-textarea [placeholder]="'tasks.form.descriptionPlaceholder' | translate"
+               [label]="'tasks.form.descriptionLabel' | translate"
+               (valueChange)="onValueChange('description', $event)">
+  </tt-textarea>
+  <div fxLayout="column" fxLayoutGap="10px">
+    <span>{{ 'tasks.form.chooseDate' | translate }}</span>
+    <tt-datepicker (newDate)="onValueChange('startDate', $event)"></tt-datepicker>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center end" fxLayoutGap="10px" class="actions">
+    <tt-button [type]="'submit'" [disabled]="!form.valid">{{ 'tasks.form.create' | translate }}</tt-button>
+    <tt-button [type]="'reset'" [color]="'secondary'">{{ 'tasks.form.cancel' | translate }}</tt-button>
+  </div>
+</form>

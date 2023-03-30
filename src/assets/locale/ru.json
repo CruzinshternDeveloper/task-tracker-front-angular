@@ -22,6 +22,15 @@
       "todo": "Сделать",
       "inProgress": "В Процессе",
       "done": "Выполнено"
+    },
+    "form": {
+      "titleLabel": "Название",
+      "titlePlaceholder": "Напишите название задачи",
+      "descriptionLabel": "Описание",
+      "descriptionPlaceholder": "Опишите задачу",
+      "chooseDate": "Выберете дату",
+      "create": "Создать",
+      "cancel": "Отмена"
     }
   }
 }

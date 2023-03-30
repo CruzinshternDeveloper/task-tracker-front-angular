@@ -4,8 +4,8 @@
   <div class="items">
     <div *ngFor="let item of navMenuItems" class="items-item">
       <mat-icon class="items-item-icon" *ngIf="isOpened">{{ item.icon }}</mat-icon>
-      <mat-icon class="items-item-icon" *ngIf="!isOpened" >{{ item.icon }}</mat-icon>
-      <span class="items-item-label">{{ item.label }}</span>
+      <mat-icon class="items-item-icon" *ngIf="!isOpened" (click)="handleRedirect(item.route)">{{ item.icon }}</mat-icon>
+      <span class="items-item-label" (click)="handleRedirect(item.route)">{{ item.label }}</span>
     </div>
   </div>
   <div class="items">

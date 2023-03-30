@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthorizationInterceptor } from './interceptors/authorization.interceptor';
 import { TtDatepickerComponent } from './components/tt-datepicker/tt-datepicker.component';
+import { TtTextareaComponent } from './components/tt-textarea/tt-textarea.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,16 @@ import { TtDatepickerComponent } from './components/tt-datepicker/tt-datepicker.
     TtButtonComponent,
     TtLanguageSelectorComponent,
     TtMenuComponent,
-    TtDatepickerComponent
+    TtDatepickerComponent,
+    TtTextareaComponent
   ],
   exports: [
     TtInputComponent,
     TtButtonComponent,
     TtLanguageSelectorComponent,
     TtMenuComponent,
-    TtDatepickerComponent
+    TtDatepickerComponent,
+    TtTextareaComponent
   ],
   imports: [
     CommonModule,

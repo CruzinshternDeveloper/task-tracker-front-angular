@@ -7,4 +7,5 @@ export enum ROUTES {
   TASKS = 'tasks',
   TASKS_LIST = 'list',
   TASKS_STATISTICS = 'statistics',
+  TASKS_CREATE = 'create',
 }

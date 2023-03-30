@@ -28,3 +28,10 @@ export const SelectDoneTasks = pipe(
   filter( tasks => !!tasks),
   map((tasks: ITask[]) => tasks.filter((t: ITask) =>  t.status === TASK_STATUS.DONE))
 )
+
+export const selectIsLoading = createSelector(tasksSelectorState, (state) => state?.isLoading);
+
+export const selectIsLoadingState = pipe(
+  select(selectIsLoading),
+  map((loading: boolean) => loading)
+)

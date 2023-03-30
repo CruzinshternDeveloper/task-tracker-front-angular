@@ -10,3 +10,7 @@ export const GetTasksFailure = createAction(`[${ COMPONENT }] Get Tasks Failure`
 export const UpdateTask = createAction(`[${ COMPONENT }] Update Task`, props<{ task: ITask }>());
 export const UpdateTaskSuccess = createAction(`[${ COMPONENT }] Update Task Success`, props<{ task: ITask }>());
 export const UpdateTaskFailure = createAction(`[${ COMPONENT }] Update Task Failure`, props<{ error: any }>());
+
+export const CreateTask = createAction(`[${ COMPONENT }] Create Task`, props<{ task: ITask }>());
+export const CreateTaskSuccess = createAction(`[${ COMPONENT }] Create Task Success`, props<{ task: ITask }>());
+export const CreateTaskFailure = createAction(`[${ COMPONENT }] Create Task Failure`, props<{ error: any }>());

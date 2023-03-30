@@ -1,6 +1,7 @@
 import { createEntityAdapter, EntityAdapter } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
 import {
+  CreateTask, CreateTaskFailure, CreateTaskSuccess,
   GetTasks,
   GetTasksFailure,
   GetTasksSuccess,
@@ -25,14 +26,17 @@ const reducer = createReducer(
   initialState,
   on(GetTasks,
     UpdateTask,
+    CreateTask,
     (state) => {
       return {
-        ...state
+        ...state,
+        isLoading: true
       }
     }),
   on(
     GetTasksFailure,
     UpdateTaskFailure,
+    CreateTaskFailure,
     (state, { error }) => {
       return {
         ...state,
@@ -51,7 +55,13 @@ const reducer = createReducer(
       ...state,
       isLoading: false
     });
-})
+  }),
+  on(CreateTaskSuccess, (state, { task }) => {
+    return adapter.addOne(task, {
+      ...state,
+      isLoading: false
+    })
+  })
 )
 
 export const { selectAll } = adapter.getSelectors()

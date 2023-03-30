@@ -34,7 +34,8 @@
   width: 26px;
 
   .items {
-    width: inherit;
+    overflow: hidden;
+    width: 140px;
 
     &-item {
       &-icon {
@@ -45,6 +46,7 @@
       &-label {
         transition: opacity 0.5s;
         opacity: 0;
+        pointer-events: none;
       }
     }
   }
@@ -54,6 +56,9 @@
   width: 140px;
 
   .items {
+    overflow: hidden;
+    width: 140px;
+
     &-item {
       &-label {
         transition: opacity 1s;

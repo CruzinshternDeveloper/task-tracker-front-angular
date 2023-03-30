@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { getFormattedDate } from '../../helpers/format-date.helper';
 
 @Component({
   selector: 'tt-datepicker',
@@ -9,7 +10,9 @@ export class TtDatepickerComponent implements OnInit {
   @Input() date: string = '';
   @Output() newDate: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() {}
+  constructor() {
+    if(!this.date) this.date = getFormattedDate(new Date);
+  }
 
   ngOnInit(): void {}
 

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { SelectActiveTasks, SelectDoneTasks, SelectTodoTasks } from '../../../store/tasks/tasks.selectors';
+import {
+  SelectActiveTasks,
+  SelectDoneTasks, selectIsLoadingState,
+  SelectTodoTasks
+} from '../../../store/tasks/tasks.selectors';
 import { GetTasks, UpdateTask } from '../../../store/tasks/tasks.actions';
 import { ITask } from '../../../shared/interfaces/tasks.interface';
 import { getFormattedDate } from '../../../shared/helpers/format-date.helper';
@@ -15,16 +19,18 @@ export class TasksListComponent implements OnInit {
   todoTasks$: Observable<ITask[]>;
   inProgressTasks$: Observable<ITask[]>;
   doneTasks$: Observable<ITask[]>;
+  // isLoading$: Observable<boolean>;
   currentDate: string = getFormattedDate(new Date);
 
   constructor(private _store: Store<any>) {
-    this._store.dispatch(GetTasks({ startDate: this.currentDate }));
+    this._store.dispatch(GetTasks({ startDate: this.currentDate }))
   }
 
   ngOnInit(): void {
     this.todoTasks$ = this._store.pipe(SelectTodoTasks);
     this.inProgressTasks$ = this._store.pipe(SelectActiveTasks);
     this.doneTasks$ = this._store.pipe(SelectDoneTasks);
+    // this.isLoading$ = this._store.pipe(selectIsLoadingState);
   }
 
   handleChangeDate(date: string) {
